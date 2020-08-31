@@ -1,0 +1,14 @@
+
+<button class="btn btn-primary" (click)="refreshData()">Get Users</button>
+
+<div *ngIf="usersData.length > 0" class="card-deck" >
+    <div class="card mb-2" *ngFor="let usr of usersData" style="min-width: 25%; max-width: 25%;">
+        <h2>{{usr.name}}</h2>
+        <span>{{usr.address.city}}</span>
+        <span>{{usr.company.name}}</span>
+    </div>
+</div>
+
+<button [disabled]="true">Property Binding</button>
+<img src="{{urlDataField}}">
+<img [src]="urlDataField">
