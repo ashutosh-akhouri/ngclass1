@@ -1,3 +1,28 @@
-<div style="height:50vh; background-color: coral;" >
-    About
+<form>
+    <label for="inpA">Item: </label>
+    <input [(ngModel)]="inputData.item" id="inpA" name="item" type="text">
+
+    <label for="inpB">Quantity</label>
+    <input [(ngModel)]="inputData.quantity" id="inpB" name="quantity" type="number">
+
+    <button type=submit (click)="addToCart()">Add Cart</button>
+</form>
+
+<div *ngIf="items.length>0">
+    <table class="table">
+        <thead>
+            <th>Item</th>
+            <th>Quantity</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let i of items; let idx = index">
+                <td>{{i.item}}</td>
+                <td>{{i.quantity}}</td>
+                <td><button (click)="delItem(idx)">Del</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div *ngIf="items.length==0">
+    <h3>Cart Empty ...</h3>
 </div>
